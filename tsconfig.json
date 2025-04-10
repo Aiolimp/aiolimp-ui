@@ -9,7 +9,10 @@
     "strict": true,
     "declaration": true,
     "outDir": "dist",
-    "baseUrl": "."
+    "baseUrl": ".",
+    "skipLibCheck": true,
+    "resolveJsonModule": true
   },
-  "include": ["packages/**/*"]
+  "include": ["packages/**/*", "packages/**/*.vue"],
+  "exclude": ["node_modules"]
 }

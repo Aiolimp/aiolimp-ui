@@ -5,7 +5,13 @@
 </template>
 
 <script lang="ts" setup>
-defineProps<{
-  type?: 'primary' | 'default';
-}>();
+defineProps({
+  type: {
+    type: String,
+    default: 'default',
+    validator: function (value: unknown): boolean {
+      return typeof value === 'string' && ['primary', 'default'].includes(value);
+    },
+  },
+});
 </script>

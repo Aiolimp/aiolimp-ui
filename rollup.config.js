@@ -1,4 +1,4 @@
-import vue from 'rollup-plugin-vue'
+import vuePlugin from '@vitejs/plugin-vue'
 import typescript from '@rollup/plugin-typescript'
 import postcss from 'rollup-plugin-postcss'
 import cssnano from 'cssnano'
@@ -12,8 +12,13 @@ export default {
   ],
   plugins: [
     nodeResolve(),
-    vue(),
-    typescript(),
+    vuePlugin(),
+    typescript({
+      tsconfig: './tsconfig.json',
+      sourceMap: false,
+      declaration: true,
+      declarationDir: 'dist'
+    }),
     postcss({
       plugins: [cssnano()],
       extract: 'style.css'
